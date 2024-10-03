@@ -44,7 +44,10 @@ application {
 }
 
 jar {
-  manifest {
-    attributes 'Main-Class': application.mainClass
-  }
+    manifest {
+        attributes 'Main-Class': application.mainClass
+    }
+    archiveBaseName = "minesweeper"
+    version = "0.0.1"
+    destinationDirectory = project.file("../bin")
 }
