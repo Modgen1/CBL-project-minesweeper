@@ -49,5 +49,5 @@ jar {
     }
     archiveBaseName = "minesweeper"
     version = "0.0.1"
-    destinationDirectory = project.file("../bin")
+    destinationDirectory = project.file("..")
 }
