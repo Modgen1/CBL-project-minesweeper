@@ -40,5 +40,14 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'org.example.App'
+    mainClass = 'org.minesweeper.Runtime'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': application.mainClass
+    }
+    archiveBaseName = "minesweeper"
+    version = "0.0.1"
+    destinationDirectory = project.file("..")
 }
