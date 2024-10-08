@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameScreen extends JFrame{
-    public GameScreen() {
+    public GameScreen(int xField, int yField, int mineAmount) {
         this.setTitle("Minesweeper");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -20,7 +20,5 @@ public class GameScreen extends JFrame{
 
         JPanel panel = new JPanel();
         this.add(panel);
-
-        this.setVisible(true);
     }
 }

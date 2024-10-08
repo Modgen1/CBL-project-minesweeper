@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class WelcomeScreen extends JFrame{
 
-    public WelcomeScreen() {
+    public WelcomeScreen(Runtime runtime) {
         this.setTitle("Minesweeper");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -23,12 +23,7 @@ public class WelcomeScreen extends JFrame{
         this.add(panel);
 
         JButton startButton = new JButton("Start the game");
-        startButton.addActionListener(e -> {
-            this.setVisible(false);
-            GameScreen gameScreen = new GameScreen();
-        });
+        startButton.addActionListener(e -> runtime.newGame(8, 8, 10));
         panel.add(startButton);
-
-        this.setVisible(true);
     }
 }
