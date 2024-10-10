@@ -12,7 +12,7 @@ public class WelcomeScreen extends JFrame{
      * @param runtime TODO
      */
     public WelcomeScreen(Runtime runtime) {
-        this.setTitle("Minesweeper");
+        this.setTitle("Minesweeper menu");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(runtime.screenWidth / 5, runtime.screenHeight / 2);
         this.setLocationRelativeTo(null);

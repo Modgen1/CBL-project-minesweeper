@@ -12,7 +12,7 @@ public class GameScreen extends JFrame{
      * @param runtime TODO
      */
     public GameScreen(Runtime runtime) {
-        this.setTitle("Minesweeper");
+        this.setTitle("Minesweeper game");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(runtime.screenWidth / 5, runtime.screenHeight / 2);
         this.setLocationRelativeTo(null);
@@ -20,5 +20,13 @@ public class GameScreen extends JFrame{
 
         JPanel panel = new JPanel();
         this.add(panel);
+
+        JButton winButton = new JButton("Win the game");
+        winButton.addActionListener(e -> runtime.winGame());
+        panel.add(winButton);
+
+        JButton loseButton = new JButton("Lose the game");
+        loseButton.addActionListener(e -> runtime.loseGame());
+        panel.add(loseButton);
     }
 }
