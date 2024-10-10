@@ -2,12 +2,19 @@ package org.minesweeper;
 
 import javax.swing.*;
 
+/**
+ * TODO write javadoc.
+ */
 public class WinScreen extends JFrame {
 
+    /**
+     * TODO write javadoc.
+     * @param runtime TODO
+     */
     public WinScreen(Runtime runtime) {
         this.setTitle("Minesweeper");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(runtime.SCREEN_WIDTH / 5, runtime.SCREEN_HEIGHT / 2);
+        this.setSize(runtime.screenWidth / 5, runtime.screenHeight / 2);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
 
