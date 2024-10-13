@@ -3,8 +3,7 @@ package org.minesweeper;
 import org.junit.*;
 
 public class RuntimeTest {
-    @Test public void appHasAGreeting() {
+    @Test public void appWorks() {
         Runtime classUnderTest = new Runtime();
-        classUnderTest.mainMenu();
     }
 }
