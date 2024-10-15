@@ -1,5 +1,6 @@
 package org.minesweeper;
 
+import java.awt.event.*;
 import javax.swing.*;
 
 /**
@@ -13,6 +14,7 @@ public class FieldButton extends JButton {
     int yPosition;
 
     boolean revealed = false;
+    boolean flagged = false;
 
     /**
      * TODO write javadoc.
@@ -22,13 +24,23 @@ public class FieldButton extends JButton {
         this.isMine = isMine;
         this.xPosition = xPosition;
         this.yPosition = yPosition;
-        this.addActionListener(e -> this.click());
+
+        this.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getButton() == MouseEvent.BUTTON1) {
+                    leftClick();
+                } else if (e.getButton() == MouseEvent.BUTTON3) {
+                    rightClick();
+                }
+            }
+        });
     }
 
     /**
      * TODO write javadoc.
      */
-    public void click() {
+    public void leftClick() {
         if (!this.revealed) {
             this.field.revealed++;
             this.revealed = true;
@@ -47,6 +59,19 @@ public class FieldButton extends JButton {
                     - this.field.mineAmount) {
                 this.field.runtime.winGame();
             }
+        }
+    }
+
+    /**
+     * TODO write javadoc.
+     */
+    public void rightClick() {
+        if (!this.revealed && !this.flagged) {
+            this.flagged = true;
+            this.setText("F");
+        } else if (!this.revealed) {
+            this.flagged = false;
+            this.setText("");
         }
     }
 
@@ -121,42 +146,42 @@ public class FieldButton extends JButton {
      */
     void revealAround() {
         try {
-            field.field[xPosition - 1][yPosition - 1].click();
+            field.field[xPosition - 1][yPosition - 1].leftClick();
         } catch (ArrayIndexOutOfBoundsException e) {
             assert true;
         }
         try {
-            field.field[xPosition][yPosition - 1].click();
+            field.field[xPosition][yPosition - 1].leftClick();
         } catch (ArrayIndexOutOfBoundsException e) {
             assert true;
         }
         try {
-            field.field[xPosition + 1][yPosition - 1].click();
+            field.field[xPosition + 1][yPosition - 1].leftClick();
         } catch (ArrayIndexOutOfBoundsException e) {
             assert true;
         }
         try {
-            field.field[xPosition - 1][yPosition].click();
+            field.field[xPosition - 1][yPosition].leftClick();
         } catch (ArrayIndexOutOfBoundsException e) {
             assert true;
         }
         try {
-            field.field[xPosition + 1][yPosition].click();
+            field.field[xPosition + 1][yPosition].leftClick();
         } catch (ArrayIndexOutOfBoundsException e) {
             assert true;
         }
         try {
-            field.field[xPosition - 1][yPosition + 1].click();
+            field.field[xPosition - 1][yPosition + 1].leftClick();
         } catch (ArrayIndexOutOfBoundsException e) {
             assert true;
         }
         try {
-            field.field[xPosition][yPosition + 1].click();
+            field.field[xPosition][yPosition + 1].leftClick();
         } catch (ArrayIndexOutOfBoundsException e) {
             assert true;
         }
         try {
-            field.field[xPosition + 1][yPosition + 1].click();
+            field.field[xPosition + 1][yPosition + 1].leftClick();
         } catch (ArrayIndexOutOfBoundsException e) {
             assert true;
         }
