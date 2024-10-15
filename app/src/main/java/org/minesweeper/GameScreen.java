@@ -3,13 +3,15 @@ package org.minesweeper;
 import javax.swing.*;
 
 /**
- * TODO write javadoc.
+ * The main screen that contains all the gameplay.
  */
 public class GameScreen extends JFrame{
 
     /**
-     * TODO write javadoc.
-     * @param runtime TODO
+     * Main gameplay. Creates a window that contains the game with the settings from
+     * the welcome screen. Calls a win screen or a lose screen depending on the outcome
+     * of the game.
+     * @param runtime object of Runtime for this screen to access information from Runtime.java
      */
     public GameScreen(Runtime runtime) {
         this.setTitle("Minesweeper game");
