@@ -14,7 +14,7 @@ public class GameScreen extends JFrame{
     public GameScreen(Runtime runtime) {
         this.setTitle("Minesweeper game");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(runtime.screenWidth / 5, runtime.screenHeight / 2);
+        this.setSize(runtime.screenWidth, runtime.screenHeight);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
 
@@ -28,5 +28,8 @@ public class GameScreen extends JFrame{
         JButton loseButton = new JButton("Lose the game");
         loseButton.addActionListener(e -> runtime.loseGame());
         panel.add(loseButton);
+
+        FieldPanel field = new FieldPanel(runtime.xMines, runtime.yMines, runtime.mineAmount);
+        panel.add(field);
     }
 }
