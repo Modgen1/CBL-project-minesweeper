@@ -5,7 +5,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 /**
- * TODO write javadoc.
+ * Welcome screen which contains 3 sliders.
  */
 public class WelcomeScreen extends JFrame implements ChangeListener {
 
@@ -18,7 +18,8 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
     static JSlider minesSlider;
 
     /**
-     * TODO write javadoc.
+     *  Creates 3 sliders - sliders for the x-value and y-value of the minefield,
+     *  and a slider for choosing the number of mines.
      * @param runtime Runtime object which this screen will be attached to.
      *                Used to access and modify variables that are shared between screens.
      */
@@ -83,7 +84,9 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
     }
 
     /**
-     * TODO write javadoc.
+     * Adjusting the amount-of-mines slider depending on the chosen variables of the
+     * xSlider and ySlider. The minimum value of the slider is 1/8 of the area of the minefield,
+     * the maximum value is 1/2 of the area of the minefield.
      * @param e Event that caused calling of this method. Handled automatically by Swing.
      */
     public void stateChanged(ChangeEvent e) {
