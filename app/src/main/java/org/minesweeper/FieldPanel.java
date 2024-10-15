@@ -9,6 +9,7 @@ import javax.swing.*;
  */
 public class FieldPanel extends JPanel {
 
+    Runtime runtime;
     FieldButton[][] field;
 
     /**
@@ -18,7 +19,9 @@ public class FieldPanel extends JPanel {
      * @param yMines TODO
      * @param mineAmount TODO
      */
-    public FieldPanel(int xMines, int yMines, int mineAmount) {
+    public FieldPanel(int xMines, int yMines, int mineAmount, Runtime runtime) {
+
+        this.runtime = runtime;
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -28,7 +31,7 @@ public class FieldPanel extends JPanel {
             gbc.gridx = x;
             for (int y = 0; y < yMines; y++) {
                 gbc.gridy = y;
-                this.field[x][y] = new FieldButton(false, x, y);
+                this.field[x][y] = new FieldButton(false, x, y, this);
                 this.add(this.field[x][y], gbc);
             }
         }

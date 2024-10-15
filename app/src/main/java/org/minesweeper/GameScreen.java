@@ -18,18 +18,19 @@ public class GameScreen extends JFrame{
         this.setLocationRelativeTo(null);
         this.setResizable(false);
 
-        JPanel panel = new JPanel();
-        this.add(panel);
+        JPanel mainPanel = new JPanel();
+        this.add(mainPanel);
 
         JButton winButton = new JButton("Win the game");
         winButton.addActionListener(e -> runtime.winGame());
-        panel.add(winButton);
+        mainPanel.add(winButton);
 
         JButton loseButton = new JButton("Lose the game");
         loseButton.addActionListener(e -> runtime.loseGame());
-        panel.add(loseButton);
+        mainPanel.add(loseButton);
 
-        FieldPanel field = new FieldPanel(runtime.xMines, runtime.yMines, runtime.mineAmount);
-        panel.add(field);
+        FieldPanel field = new FieldPanel(
+                runtime.xMines, runtime.yMines, runtime.mineAmount, runtime);
+        mainPanel.add(field);
     }
 }
