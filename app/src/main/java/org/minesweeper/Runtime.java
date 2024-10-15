@@ -4,7 +4,10 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * TODO write javadoc.
+ * A class which stores all the screens, the current screen, the minimum number of values
+ * for the sliders and information regarding the screen resolution.
+ * It also contains methods that make a certain window active and
+ * hide the previously active window.
  */
 public class Runtime {
     // runtime stores all screens after their first initialization so game can use same screens
@@ -31,7 +34,7 @@ public class Runtime {
     int screenHeight = (int) size.getHeight();
 
     /**
-     * TODO write javadoc.
+     * Create a welcome screen at the launch of the program.
      */
     public void mainMenu() {
         if (welcomeScreen == null) {
@@ -44,7 +47,7 @@ public class Runtime {
     }
 
     /**
-     * TODO write javadoc.
+     * Make the game screen visible and hide the previously active screen.
      */
     public void newGame() {
         currentScreen.setVisible(false);
@@ -54,7 +57,7 @@ public class Runtime {
     }
 
     /**
-     * TODO write javadoc.
+     * Make the win screen visible and hide the previously active screen.
      */
     public void winGame() {
         currentScreen.setVisible(false);
@@ -66,7 +69,7 @@ public class Runtime {
     }
 
     /**
-     * TODO write javadoc.
+     * Make the lose screen visible and hide the previously active screen.
      */
     public void loseGame() {
         currentScreen.setVisible(false);
