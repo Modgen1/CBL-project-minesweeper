@@ -9,7 +9,8 @@ public class WinScreen extends JFrame {
 
     /**
      * Renders a win screen window.
-     * User can press a button to go back to the main menu or to restart the game.
+     * User can press a button to go back to the main menu, to restart the game,
+     * or to exit the game.
      * @param runtime object of Runtime for this screen to access information from Runtime.java
      */
     public WinScreen(Runtime runtime) {
