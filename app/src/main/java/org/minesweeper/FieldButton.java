@@ -30,6 +30,7 @@ public class FieldButton extends JButton {
      */
     public void click() {
         if (!this.revealed) {
+            this.field.revealed++;
             this.revealed = true;
             if (isMine) {
                 this.field.runtime.loseGame();
@@ -41,6 +42,10 @@ public class FieldButton extends JButton {
                 } else {
                     this.setText(String.valueOf(neighbours));
                 }
+            }
+            if (this.field.revealed >= this.field.xMines * this.field.yMines
+                    - this.field.mineAmount) {
+                this.field.runtime.winGame();
             }
         }
     }

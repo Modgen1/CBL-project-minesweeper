@@ -21,14 +21,6 @@ public class GameScreen extends JFrame{
         JPanel mainPanel = new JPanel();
         this.add(mainPanel);
 
-        JButton winButton = new JButton("Win the game");
-        winButton.addActionListener(e -> runtime.winGame());
-        mainPanel.add(winButton);
-
-        JButton loseButton = new JButton("Lose the game");
-        loseButton.addActionListener(e -> runtime.loseGame());
-        mainPanel.add(loseButton);
-
         FieldPanel field = new FieldPanel(
                 runtime.xMines, runtime.yMines, runtime.mineAmount, runtime);
         mainPanel.add(field);
