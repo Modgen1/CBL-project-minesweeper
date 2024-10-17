@@ -11,24 +11,20 @@ public class GameScreen extends JFrame{
      * Main gameplay. Creates a window that contains the game with the settings from
      * the welcome screen. Calls a win screen or a lose screen depending on the outcome
      * of the game.
-     * @param runtime object of Runtime for this screen to access information from Runtime.java
+     * @param runtime Runtime object which this screen will be attached to.
+     *                Used to access and modify variables that are shared between screens.
      */
     public GameScreen(Runtime runtime) {
+        // screen configuration
         this.setTitle("Minesweeper game");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(runtime.screenWidth / 5, runtime.screenHeight / 2);
+        this.setSize(runtime.screenWidth, runtime.screenHeight);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
 
-        JPanel panel = new JPanel();
-        this.add(panel);
-
-        JButton winButton = new JButton("Win the game");
-        winButton.addActionListener(e -> runtime.winGame());
-        panel.add(winButton);
-
-        JButton loseButton = new JButton("Lose the game");
-        loseButton.addActionListener(e -> runtime.loseGame());
-        panel.add(loseButton);
+        // creating a panel containing game field and adding it to the frame
+        FieldPanel field = new FieldPanel(
+                runtime.xMines, runtime.yMines, runtime.mineAmount, runtime);
+        this.add(field);
     }
 }
