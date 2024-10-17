@@ -3,13 +3,15 @@ package org.minesweeper;
 import javax.swing.*;
 
 /**
- * TODO write javadoc.
+ * Mechanics of the lose screen.
  */
 public class LoseScreen extends JFrame {
 
     /**
-     * TODO write javadoc.
-     * @param runtime TODO
+     * Renders a lose screen window.
+     * User can press a button to go back to the main menu, to restart the game,
+     * or to exit the game.
+     * @param runtime object of Runtime for this screen to access information from Runtime.java
      */
     public LoseScreen(Runtime runtime) {
         this.setTitle("You lost!");
