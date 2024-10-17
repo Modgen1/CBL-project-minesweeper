@@ -4,10 +4,10 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * A class which stores all the screens, the current screen, the minimum number of values
- * for the sliders and information regarding the screen resolution.
- * It also contains methods that make a certain window active and
- * hide the previously active window.
+ * Main package class that runs the program. Stores all created objects of screen classes,
+ * the current screen, information regarding the user's screen resolution and all global variables
+ * that can be accessed by other objects of the package.
+ * It also handles switching between screens depending on user current state.
  */
 public class Runtime {
     // runtime stores all screens after their first initialization so game can use same screens
@@ -34,7 +34,7 @@ public class Runtime {
     int screenHeight = (int) size.getHeight();
 
     /**
-     * Create a welcome screen at the launch of the program.
+     * Create or switch to a welcome screen at the launch of the program.
      */
     public void mainMenu() {
         if (welcomeScreen == null) {
@@ -47,7 +47,7 @@ public class Runtime {
     }
 
     /**
-     * Make the game screen visible and hide the previously active screen.
+     * Switch from the current screen to the new game screen.
      */
     public void newGame() {
         currentScreen.setVisible(false);
@@ -57,7 +57,8 @@ public class Runtime {
     }
 
     /**
-     * Make the win screen visible and hide the previously active screen.
+     * Method that is called when user wins the game.
+     * Switches from the game screen to the win screen.
      */
     public void winGame() {
         currentScreen.setVisible(false);
@@ -69,7 +70,8 @@ public class Runtime {
     }
 
     /**
-     * Make the lose screen visible and hide the previously active screen.
+     * Method that is called when user loses the game.
+     * Switches from the game screen to the defeat screen.
      */
     public void loseGame() {
         currentScreen.setVisible(false);

@@ -5,10 +5,15 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 /**
- * Welcome screen which contains 3 sliders.
+ * Main menu class of the game that is responsible for setting up all configurations
+ * provided by user to prepare for creating a game field.
+ * It allows user to change settings that are available for them and then start the game.
+ * Available settings are:
+ * 1. field width
+ * 2. field height
+ * 3. amount of mines.
  */
 public class WelcomeScreen extends JFrame implements ChangeListener {
-
     // runtime object that called this screen
     Runtime runtime;
 
@@ -18,8 +23,10 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
     static JSlider minesSlider;
 
     /**
-     *  Creates 3 sliders - sliders for the x-value and y-value of the minefield,
-     *  and a slider for choosing the number of mines.
+     * Object generator that renders the welcome screen.
+     * Creates 3 sliders - sliders for the x-value and y-value of the minefield,
+     * and a slider for choosing the number of mines.
+     *
      * @param runtime Runtime object which this screen will be attached to.
      *                Used to access and modify variables that are shared between screens.
      */
@@ -84,9 +91,12 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
     }
 
     /**
-     * Adjusting the amount-of-mines slider depending on the chosen variables of the
-     * xSlider and ySlider. The minimum value of the slider is 1/8 of the area of the minefield,
+     * Event handler for changing values of first two sliders.
+     * Adjusts the amount-of-mines slider depending on the chosen variables of the
+     * field width and field height.
+     * The minimum value of the slider is 1/8 of the area of the minefield,
      * the maximum value is 1/2 of the area of the minefield.
+     *
      * @param e Event that caused calling of this method. Handled automatically by Swing.
      */
     public void stateChanged(ChangeEvent e) {
