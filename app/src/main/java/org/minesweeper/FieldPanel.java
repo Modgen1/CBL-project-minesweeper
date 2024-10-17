@@ -1,7 +1,6 @@
 package org.minesweeper;
 
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Random;
 import javax.swing.*;
 
@@ -12,6 +11,10 @@ public class FieldPanel extends JPanel {
 
     Runtime runtime;
     FieldButton[][] field;
+
+    Dimension size;
+    Font font;
+    Insets margin;
 
     int xMines;
     int yMines;
@@ -34,6 +37,14 @@ public class FieldPanel extends JPanel {
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
+
+        int side = Math.min(
+                (runtime.screenWidth - 200) / xMines, (runtime.screenHeight - 200) / yMines);
+        size = new Dimension(side, side);
+
+        font = new Font("Monospaced", Font.PLAIN, side - side / 5);
+
+        margin = new Insets(0, 0, 0, 0);
 
         this.field = new FieldButton[xMines][yMines];
         for (int x = 0; x < xMines; x++) {

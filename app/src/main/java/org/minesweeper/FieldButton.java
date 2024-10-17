@@ -1,5 +1,6 @@
 package org.minesweeper;
 
+import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -25,6 +26,10 @@ public class FieldButton extends JButton {
         this.xPosition = xPosition;
         this.yPosition = yPosition;
 
+        this.setPreferredSize(field.size);
+        this.setMargin(field.margin);
+        this.setFont(field.font);
+
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -44,13 +49,14 @@ public class FieldButton extends JButton {
         if (!this.revealed) {
             this.field.revealed++;
             this.revealed = true;
+            this.setBackground(Color.white);
             if (isMine) {
                 this.field.runtime.loseGame();
             } else {
                 int neighbours = checkNeighbours();
                 if (neighbours == 0) {
                     revealAround();
-                    this.setText("0");
+                    this.setText(" ");
                 } else {
                     this.setText(String.valueOf(neighbours));
                 }

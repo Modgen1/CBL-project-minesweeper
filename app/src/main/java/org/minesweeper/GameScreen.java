@@ -18,11 +18,8 @@ public class GameScreen extends JFrame{
         this.setLocationRelativeTo(null);
         this.setResizable(false);
 
-        JPanel mainPanel = new JPanel();
-        this.add(mainPanel);
-
         FieldPanel field = new FieldPanel(
                 runtime.xMines, runtime.yMines, runtime.mineAmount, runtime);
-        mainPanel.add(field);
+        this.add(field);
     }
 }
