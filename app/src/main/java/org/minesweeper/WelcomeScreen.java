@@ -46,7 +46,7 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
         this.add(panel);
 
         // adding and configuring slider for changing the field width
-        xSlider = new JSlider(8, 56, runtime.xMines);
+        xSlider = new JSlider(12, 44, runtime.xMines);
         xSlider.setPaintTrack(true);
         xSlider.setPaintTicks(true);
         xSlider.setPaintLabels(true);
@@ -56,7 +56,7 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
         xSlider.addChangeListener(this); // calls stateChanged() after each change in slider value
 
         // adding and configuring slider for changing the field width
-        ySlider = new JSlider(8, 56, runtime.yMines);
+        ySlider = new JSlider(12, 44, runtime.yMines);
         ySlider.setPaintTrack(true);
         ySlider.setPaintTicks(true);
         ySlider.setPaintLabels(true);
