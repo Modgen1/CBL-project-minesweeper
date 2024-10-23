@@ -5,6 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 
+
 /**
  * TODO write javadoc.
  */
@@ -61,7 +62,12 @@ public class FieldButton extends JButton {
             this.setBackground(Color.white);
             // if the cell contains mine, user loses
             if (isMine) {
-                this.field.runtime.loseGame();
+                String boomIcon = new String(Character.toChars(0x1F4A5));
+                this.setText(boomIcon);
+                SwingUtilities.invokeLater(() -> {
+                    this.field.runtime.loseGame();
+                });
+
             } else {
                 // checking how many surrounding cells have mines in them
                 int neighbours = checkNeighbours();
