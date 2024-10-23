@@ -50,7 +50,7 @@ public class FieldPanel extends JPanel {
         // creating dimension object for size of the cell as it is passed into the cell's setSize
         size = new Dimension(side, side);
         // creating font object based on cell size that will be used by text inside cells
-        font = new Font("Monospaced", Font.PLAIN, side - side / 5);
+        font = new Font("Monospaced", Font.PLAIN, side - side / 4);
         // setting zero margins for the cells so they can fit text even when they are small
         margin = new Insets(0, 0, 0, 0);
 
