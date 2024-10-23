@@ -2,7 +2,10 @@ package org.minesweeper;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Arrays;
 import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.Box;
 
 /**
  * TODO write javadoc.
@@ -88,7 +91,10 @@ public class FieldButton extends JButton {
         // if cell is not revealed and there is no flag, put flag
         if (!this.revealed && !this.flagged) {
             this.flagged = true;
-            this.setText("F");
+
+            String flagIcon = new String(Character.toChars(0x1F6A9));
+            this.setText(flagIcon);
+
         // else if it has flag, remove it
         } else if (!this.revealed) {
             this.flagged = false;
