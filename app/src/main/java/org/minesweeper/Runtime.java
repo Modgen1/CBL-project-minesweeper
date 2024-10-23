@@ -74,6 +74,11 @@ public class Runtime {
      * Switches from the game screen to the defeat screen.
      */
     public void loseGame() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         currentScreen.setVisible(false);
         if (loseScreen == null) {
             loseScreen = new LoseScreen(this);
