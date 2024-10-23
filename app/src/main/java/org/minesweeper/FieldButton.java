@@ -64,9 +64,7 @@ public class FieldButton extends JButton {
             if (isMine) {
                 String boomIcon = new String(Character.toChars(0x1F4A5));
                 this.setText(boomIcon);
-                SwingUtilities.invokeLater(() -> {
-                    this.field.runtime.loseGame();
-                });
+                SwingUtilities.invokeLater(() -> this.field.runtime.loseGame());
 
             } else {
                 // checking how many surrounding cells have mines in them
