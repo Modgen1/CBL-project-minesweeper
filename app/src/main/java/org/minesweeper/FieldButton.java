@@ -2,10 +2,8 @@ package org.minesweeper;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Arrays;
 import javax.swing.*;
-import javax.swing.ImageIcon;
-import javax.swing.Box;
+
 
 /**
  * TODO write javadoc.
