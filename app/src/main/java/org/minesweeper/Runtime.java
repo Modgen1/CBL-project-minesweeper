@@ -23,9 +23,9 @@ public class Runtime {
 
     // initializing settings that can be changed by the user so they are also available to every
     // window in the game through runtime
-    int xMines = 8; // 8 is the minimal width of the field
-    int yMines = 8; // 8 is the minimal height of the field
-    int mineAmount = 8; // 8 is the minimal amount of mines on the smallest field
+    int xMines = 12; // 8 is the minimal width of the field
+    int yMines = 12; // 8 is the minimal height of the field
+    int mineAmount = 18; // 8 is the minimal amount of mines on the smallest field
 
     // getting user's screen resolution so it can be used by window objects to properly
     // scale game windows
@@ -74,6 +74,11 @@ public class Runtime {
      * Switches from the game screen to the defeat screen.
      */
     public void loseGame() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         currentScreen.setVisible(false);
         if (loseScreen == null) {
             loseScreen = new LoseScreen(this);
