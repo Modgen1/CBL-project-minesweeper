@@ -4,8 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-
-
 /**
  * Class that extends JButton class in order to implement cell of the minesweeper field.
  * Adds functionality of left click with revealing amount of mines around and right click
@@ -69,8 +67,8 @@ public class FieldButton extends JButton {
             this.setBackground(Color.white);
             // if the cell contains mine, user loses
             if (isMine) {
-                String boomIcon = new String(Character.toChars(0x1F4A5));
-                this.setText(boomIcon);
+                // shows the icon of a mine
+                this.setText(new String(Character.toChars(0x1F4A5)));
                 SwingUtilities.invokeLater(() -> this.field.runtime.loseGame());
 
             } else {
@@ -79,7 +77,7 @@ public class FieldButton extends JButton {
                 // if there are no mines around, reveal all cells around this one
                 if (neighbours == 0) {
                     revealAround();
-                    this.setText(" ");
+                    this.setText("");
                 // else show the amount of cells around that have mines
                 } else {
                     this.setText(String.valueOf(neighbours));
@@ -103,10 +101,8 @@ public class FieldButton extends JButton {
         // if cell is not revealed and there is no flag, put flag
         if (!this.revealed && !this.flagged) {
             this.flagged = true;
-
-            String flagIcon = new String(Character.toChars(0x1F6A9));
-            this.setText(flagIcon);
-
+            // shows the icon of a flag
+            this.setText(new String(Character.toChars(0x1F6A9)));
         // else if it has flag, remove it
         } else if (!this.revealed) {
             this.flagged = false;
