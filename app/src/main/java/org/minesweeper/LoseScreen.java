@@ -1,7 +1,7 @@
 package org.minesweeper;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 /**
  * Mechanics of the defeat screen.
@@ -34,7 +34,7 @@ public class LoseScreen extends JFrame {
         label.setFont(label.getFont().deriveFont(48f));
         panel.add(label);
 
-        JPanel flow = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JPanel flow = new JPanel(new FlowLayout(FlowLayout.LEADING));
         this.add(flow, BorderLayout.SOUTH);
 
         // creating and attaching a button for exiting to main menu
@@ -43,7 +43,7 @@ public class LoseScreen extends JFrame {
         flow.add(startButton);
 
         // creating and attaching a button for starting a new game
-        JButton newGameButton = new JButton("Start the new game");
+        JButton newGameButton = new JButton("Start new game");
         newGameButton.addActionListener(e -> runtime.newGame());
         flow.add(newGameButton);
 

@@ -1,9 +1,9 @@
 package org.minesweeper;
 
+import java.awt.*;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.*;
 
 /**
  * Main menu class of the game that is responsible for setting up all configurations

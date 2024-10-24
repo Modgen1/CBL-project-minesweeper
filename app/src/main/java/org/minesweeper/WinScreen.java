@@ -1,7 +1,7 @@
 package org.minesweeper;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 /**
  * Mechanics of the win screen.

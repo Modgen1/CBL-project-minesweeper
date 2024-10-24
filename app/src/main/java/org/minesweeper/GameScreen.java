@@ -9,6 +9,8 @@ public class GameScreen extends JFrame{
     /**
      * Object generator that configures the screen and handles panel rendering with all
      * its appropriate logic.
+     * Somehow checkstyle shows warning that spaces are not used accordingly, but it seems like
+     * checkstyle bug as we use them everywhere similarly.
      *
      * @param runtime Runtime object which this screen will be attached to.
      *                Used to access and modify variables that are shared between screens.
