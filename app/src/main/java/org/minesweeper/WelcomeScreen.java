@@ -47,6 +47,8 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
         container.setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.insets = new Insets(0, 20, 0, 20);
+        constraints.weightx = 0.5;
         constraints.weighty = 0.5;
 
         // adding label for the field width slider
