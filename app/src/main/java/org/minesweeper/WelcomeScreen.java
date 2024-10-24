@@ -53,7 +53,6 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
 
         // adding label for the field width slider
         constraints.gridy = 0;
-        constraints.gridx = 0;
         container.add(new JLabel("Choose field width:"), constraints);
 
         // adding and configuring slider for changing the field width
@@ -66,13 +65,12 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
         xSlider.setSnapToTicks(true); // to avoid float values of ticks for sliders, enable snapping
         xSlider.addChangeListener(this); // calls stateChanged() after each change in slider value
 
-        constraints.gridx = 1;
+        constraints.gridy = 1;
         container.add(xSlider, constraints);
 
 
         // adding label for the field height slider
-        constraints.gridy = 1;
-        constraints.gridx = 0;
+        constraints.gridy = 2;
         container.add(new JLabel("Choose field height:"), constraints);
 
         // adding and configuring slider for changing the field width
@@ -84,12 +82,11 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
         ySlider.setMinorTickSpacing(4);
         ySlider.setSnapToTicks(true); // to avoid float values of ticks for sliders, enable snapping
         ySlider.addChangeListener(this); // calls stateChanged() after each change in slider value
-        constraints.gridx = 1;
+        constraints.gridy = 3;
         container.add(ySlider, constraints);
 
         // adding label for the mines slider
-        constraints.gridy = 2;
-        constraints.gridx = 0;
+        constraints.gridy = 4;
         container.add(new JLabel("Choose amount of mines:"), constraints);
 
         // adding and configuring slider for changing amount of mines
@@ -102,7 +99,7 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
         minesSlider.setMajorTickSpacing(minesSlider.getMaximum() / 4); // always divisible by 4
         minesSlider.setMinorTickSpacing(minesSlider.getMajorTickSpacing() / 4);
         minesSlider.addChangeListener(this);
-        constraints.gridx = 1;
+        constraints.gridy = 5;
         container.add(minesSlider, constraints);
 
         // creates button for starting a new game with set values of settings
@@ -110,8 +107,7 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
         startButton.addActionListener(e -> runtime.newGame()); // when button pressed, create game
 
         // adding it to the frame at the bottom
-        constraints.gridy = 3;
-        constraints.gridx = 0;
+        constraints.gridy = 6;
         constraints.anchor = GridBagConstraints.PAGE_END;
         constraints.gridwidth = 2;
         container.add(startButton, constraints);
