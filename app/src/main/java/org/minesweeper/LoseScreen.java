@@ -34,7 +34,7 @@ public class LoseScreen extends JFrame {
         label.setFont(label.getFont().deriveFont(48f));
         panel.add(label);
 
-        JPanel flow = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        JPanel flow = new JPanel(new FlowLayout(FlowLayout.CENTER));
         this.add(flow, BorderLayout.SOUTH);
 
         // creating and attaching a button for exiting to main menu

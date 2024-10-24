@@ -8,6 +8,9 @@ import javax.swing.*;
  * the current screen, information regarding the user's screen resolution and all global variables
  * that can be accessed by other objects of the package.
  * It also handles switching between screens depending on user current state.
+ *
+ * @author Ivan Sergeevich Mishin (2076209)
+ * @author Nikita Vladimirovich Gamolin (2091402)
  */
 public class Runtime {
     // runtime stores all screens after their first initialization so game can use same screens
