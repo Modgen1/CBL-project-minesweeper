@@ -1,6 +1,7 @@
 package org.minesweeper;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Mechanics of the defeat screen.
@@ -18,7 +19,7 @@ public class LoseScreen extends JFrame {
      */
     public LoseScreen(Runtime runtime) {
         // screen configuration
-        this.setTitle("You lost!");
+        this.setTitle("Minesweeper game");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(runtime.screenWidth / 5, runtime.screenHeight / 2);
         this.setLocationRelativeTo(null);
@@ -26,21 +27,29 @@ public class LoseScreen extends JFrame {
 
         // creating and adding a panel to the frame
         JPanel panel = new JPanel();
-        this.add(panel);
+        this.add(panel, BorderLayout.NORTH);
+
+        JLabel label = new JLabel("You lost!");
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setFont(label.getFont().deriveFont(48f));
+        panel.add(label);
+
+        JPanel flow = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        this.add(flow, BorderLayout.SOUTH);
 
         // creating and attaching a button for exiting to main menu
         JButton startButton = new JButton("Back to menu");
         startButton.addActionListener(e -> runtime.mainMenu());
-        panel.add(startButton);
+        flow.add(startButton);
 
         // creating and attaching a button for starting a new game
         JButton newGameButton = new JButton("Start the new game");
         newGameButton.addActionListener(e -> runtime.newGame());
-        panel.add(newGameButton);
+        flow.add(newGameButton);
 
         // creating and attaching a button for exiting the program
         JButton exitButton = new JButton("Exit the game");
         exitButton.addActionListener(e -> System.exit(0));
-        panel.add(exitButton);
+        flow.add(exitButton);
     }
 }

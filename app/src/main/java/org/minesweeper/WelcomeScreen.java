@@ -3,6 +3,7 @@ package org.minesweeper;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.awt.*;
 
 /**
  * Main menu class of the game that is responsible for setting up all configurations
@@ -41,9 +42,17 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
         this.setLocationRelativeTo(null); // places the window in the middle of the screen
         this.setResizable(false); // restricting resizing in order to avoid rendering bugs
 
-        // creating and adding a panel to the frame
-        JPanel panel = new JPanel();
-        this.add(panel);
+        // creating grid layout for the window
+        Container container = getContentPane();
+        container.setLayout(new GridBagLayout());
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.weighty = 0.5;
+
+        // adding label for the field width slider
+        constraints.gridy = 0;
+        constraints.gridx = 0;
+        container.add(new JLabel("Choose field width:"), constraints);
 
         // adding and configuring slider for changing the field width
         xSlider = new JSlider(12, 44, runtime.xMines);
@@ -55,6 +64,15 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
         xSlider.setSnapToTicks(true); // to avoid float values of ticks for sliders, enable snapping
         xSlider.addChangeListener(this); // calls stateChanged() after each change in slider value
 
+        constraints.gridx = 1;
+        container.add(xSlider, constraints);
+
+
+        // adding label for the field height slider
+        constraints.gridy = 1;
+        constraints.gridx = 0;
+        container.add(new JLabel("Choose field height:"), constraints);
+
         // adding and configuring slider for changing the field width
         ySlider = new JSlider(12, 44, runtime.yMines);
         ySlider.setPaintTrack(true);
@@ -64,8 +82,15 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
         ySlider.setMinorTickSpacing(4);
         ySlider.setSnapToTicks(true); // to avoid float values of ticks for sliders, enable snapping
         ySlider.addChangeListener(this); // calls stateChanged() after each change in slider value
+        constraints.gridx = 1;
+        container.add(ySlider, constraints);
 
-        //adding and configuring slider for changing amount of mines
+        // adding label for the mines slider
+        constraints.gridy = 2;
+        constraints.gridx = 0;
+        container.add(new JLabel("Choose amount of mines:"), constraints);
+
+        // adding and configuring slider for changing amount of mines
         minesSlider = new JSlider((runtime.xMines * runtime.yMines) / 8,
                 (runtime.xMines * runtime.yMines) / 2,
                 runtime.mineAmount);
@@ -75,19 +100,20 @@ public class WelcomeScreen extends JFrame implements ChangeListener {
         minesSlider.setMajorTickSpacing(minesSlider.getMaximum() / 4); // always divisible by 4
         minesSlider.setMinorTickSpacing(minesSlider.getMajorTickSpacing() / 4);
         minesSlider.addChangeListener(this);
+        constraints.gridx = 1;
+        container.add(minesSlider, constraints);
 
         // creates button for starting a new game with set values of settings
         JButton startButton = new JButton("Start the game");
         startButton.addActionListener(e -> runtime.newGame()); // when button pressed, create game
 
-        // adding all elements to the panel in the right order
-        panel.add(new JLabel("Choose field width:"));
-        panel.add(xSlider);
-        panel.add(new JLabel("Choose field height:"));
-        panel.add(ySlider);
-        panel.add(new JLabel("Choose amount of mines:"));
-        panel.add(minesSlider);
-        panel.add(startButton);
+        // adding it to the frame at the bottom
+        constraints.gridy = 3;
+        constraints.gridx = 0;
+        constraints.anchor = GridBagConstraints.PAGE_END;
+        constraints.gridwidth = 2;
+        container.add(startButton, constraints);
+
     }
 
     /**
