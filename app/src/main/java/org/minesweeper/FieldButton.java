@@ -5,7 +5,9 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * TODO write javadoc.
+ * Class that extends JButton class in order to implement cell of the minesweeper field.
+ * Adds functionality of left click with revealing amount of mines around and right click
+ * showing a flag that indicates that user thinks there is a mine under the cell.
  */
 public class FieldButton extends JButton {
     // object variables that are passed to the generator
@@ -19,7 +21,8 @@ public class FieldButton extends JButton {
     boolean flagged = false; // whether there is a flag on this cell
 
     /**
-     * TODO write javadoc.
+     * Object generator that configures the cell and adds mouse listener that calls methods
+     * depending on what mouse button user clicks.
      */
     public FieldButton(int xPosition, int yPosition, FieldPanel field) {
         // assigning passed parameters to the object variables
@@ -48,11 +51,15 @@ public class FieldButton extends JButton {
     }
 
     /**
-     * TODO write javadoc.
+     * Method that implements logic of left mouse button click.
+     * Does nothing if cell is already revealed or if it is flagged,
+     * otherwise reveals it showing whether it has mine.
+     * If it does not, then shows how many neighbouring cells da have them.
+     * If no neighbours have mines, then all these cells are also revealed.
      */
     public void leftClick() {
         // if the cell was not already revealed
-        if (!this.revealed) {
+        if (!this.revealed && !this.flagged) {
             // adding one to the counter of revealed cells in the field
             this.field.revealed++;
             // setting the cell as revealed
@@ -82,7 +89,10 @@ public class FieldButton extends JButton {
     }
 
     /**
-     * TODO write javadoc.
+     * Method that implements the logic of right mouse button click.
+     * Works only on non-revealed cells - if user clicks with right mouse button,
+     * he sets a flag on this mine indicating that they think there is a mine under the flag.
+     * With the next right click on the flagged cell, flag is removed.
      */
     public void rightClick() {
         // if cell is not revealed and there is no flag, put flag
@@ -97,7 +107,11 @@ public class FieldButton extends JButton {
     }
 
     /**
-     * TODO write javadoc.
+     * Method that checks amount of neighbouring cells that do have mines under them.
+     * This method is shown as too deeply nested, but it does the same check for 8 different
+     * neighbours so it cannot be much simplified.
+     * Catch part is also only required by the checkstyle as it does not allow to leave blank
+     * brackets so we had to put assert true into them which basically does nothing.
      *
      * @return integer amount of neighbouring cells that have mine in them
      */
@@ -172,7 +186,13 @@ public class FieldButton extends JButton {
     }
 
     /**
-     * TODO write javadoc.
+     * This method is called when there are no neighbours around and therefore all their cells can
+     * be revealed.
+     * For this we iterate through all these neighbours and imitate left click on each of them.
+     * It uses the same structure as checkNeighbours method, therefore is considered by checkstyle
+     * to be too deeply nested but in our implementation of the game, it is the most performant
+     * implementation which also adds nice animation when a lot of cells are being revealed by this
+     * method.
      */
     void revealAround() {
         try {

@@ -5,7 +5,10 @@ import java.util.Random;
 import javax.swing.*;
 
 /**
- * TODO write javadoc.
+ * FieldPanel class that extends standard Swing JPanel class.
+ * Represents game field that is a part od GameScreen. All the game logic happens inside this class.
+ * Generates minefield and creates objects of FieldButton class for each cell on the field.
+ * Then fills the field with mines randomly based on the amount of mines user has chosen.
  */
 public class FieldPanel extends JPanel {
 
@@ -26,11 +29,12 @@ public class FieldPanel extends JPanel {
     int revealed = 0; // amount of already revealed cells, required for determining win condition
 
     /**
-     * TODO write javadoc.
-     * All parameters are passed from runtime object which stores these variables.
+     * Main class generator that gets the runtime object and creates the field based on values
+     * inside the runtime. All parameters that are used in the generator are passed from runtime
+     * object which stores these variables.
      *
      * @param runtime Runtime object which this panel's screen will be attached to.
-     *                Used to access and modify variables that are shared between screens.
+     *                Used to access variables that are shared between screens.
      */
     public FieldPanel(Runtime runtime) {
         // assigning object variables to passed parameters
@@ -67,6 +71,15 @@ public class FieldPanel extends JPanel {
                 this.add(this.field[x][y], gbc);
             }
         }
+        generateMines();
+    }
+
+    /**
+     * Method extracted from the generator to improve readability of the code.
+     * This method generates randomly placed mines across the board and changes parameters
+     * of the buttons accordingly.
+     */
+    void generateMines() {
         // creating object for randomizing as it is used to pseudo-randomly generate mine position
         Random rand = new Random();
         // iterating through all mines and generating their position
@@ -74,8 +87,8 @@ public class FieldPanel extends JPanel {
             int randX = rand.nextInt(0, this.xMines);
             int randY = rand.nextInt(0, this.yMines);
             // if there is no mine at this cell, it gets mine, else repeat cycle once more
-            if (!field[randX][randY].isMine) {
-                field[randX][randY].isMine = true;
+            if (!this.field[randX][randY].isMine) {
+                this.field[randX][randY].isMine = true;
             } else {
                 i++;
             }
