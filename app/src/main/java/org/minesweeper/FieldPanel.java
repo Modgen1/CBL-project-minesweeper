@@ -43,6 +43,9 @@ public class FieldPanel extends JPanel {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
+        // setting a gray background for the panel
+        setBackground(Color.darkGray);
+
         // calculating the size of the side of the cell that will fit the user's screen
         int side = Math.min(
                 (runtime.screenWidth - 200) / this.xMines,
