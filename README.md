@@ -19,6 +19,8 @@ The main class of the project is org.minesweeper.Runtime which is launched when 
 Simply go to [releases](https://github.com/Modgen1/CBL-project-minesweeper/releases) and download the .jar executable from there.
 
 ### Running the program
+Java 17 or higher is required to run the program!
+If you get "A Java exception has occurred" error, check that you are using correct version of JRE
 To run this executable you can either click on it, if Java is set to be the default application for the .jar extension in your system, or you can run the command:
 
 `java -jar <absolute path to the .jar executable>`

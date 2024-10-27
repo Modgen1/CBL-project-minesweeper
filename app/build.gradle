@@ -48,6 +48,6 @@ jar {
 tasks.named('shadowJar', ShadowJar) {
     archiveBaseName.set('minesweeper')
     archiveClassifier.set('')
-    archiveVersion.set('0.1.0')
+    archiveVersion.set('1.0.0')
     destinationDirectory.set(project.file(".."))
 }
